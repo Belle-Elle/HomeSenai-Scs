@@ -31,7 +31,7 @@ export default function home() {
                 </div>
 
                </div>
-            </main>
+            </main> 
             <Footer/>
         </div>
 

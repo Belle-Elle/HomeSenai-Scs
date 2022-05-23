@@ -10,7 +10,7 @@ import Header from "../components/header";
 import svg from "../../src/Assets/img/password.svg";
 import user from "../../src/Assets/img/user.svg";
 
-
+ 
 
 
 export default function Login(){
@@ -53,7 +53,7 @@ export default function Login(){
       <div>
         <Header />
 
-        <div className>
+        <div >
           <div className="main">
             <div className="wrap animated fadeIn">
 
