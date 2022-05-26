@@ -23,14 +23,6 @@ main{
     flex-direction:column;
 }
 
-section{
-    width: 1200px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 label{
     position:relative;
     display:block
@@ -192,9 +184,7 @@ input[type=submit]:hover{
     
     
 }
-    * {
-        font-size:14px!important
-    }
+   
 
  
 
@@ -245,14 +235,6 @@ main{
     align-items: center;
     justify-content: space-around;
 
-}
-
-section{
-    width: 1200px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 label {
