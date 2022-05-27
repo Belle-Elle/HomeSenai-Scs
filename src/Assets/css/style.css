@@ -87,6 +87,19 @@ section img:hover {
 }
 
 @media (max-width: 500px) {
+    .container_img {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        
+        
+    
+    }
+     
+    .imagem{
+        margin-bottom: 10px;
+    }
+
     .container_imagem {
         display: flex;
         justify-content: space-between;
