@@ -97,7 +97,7 @@ section img:hover {
     }
      
     .imagem{
-        margin-bottom: 10px;
+        margin-bottom: 25px;
     }
 
     .container_imagem {
@@ -151,7 +151,7 @@ section img:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 94%;
+    width: 104%;
     padding: 5%;
 
 }
@@ -161,8 +161,8 @@ section img:hover {
     /* object-fit: cover; */
 
     transition: transform .75s;
-    width: 25px;
-    height: 95px;
+    width: 60vw;
+    height: 10vh;
     border-radius: 35px;
     filter: drop-shadow(0px 20px 32px rgba(0, 0, 0, 0.50));
 }
@@ -178,13 +178,13 @@ footer {
     background-image: url(../img/bg-footer.png);
     background-repeat: no-repeat;
     width: 100vw;
-    height: 80px;
+    height: 80vw;
 }
 
 a {
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500px;
+    font-weight: 500vw;
     font-size: 15px;
     text-decoration: none;
 
