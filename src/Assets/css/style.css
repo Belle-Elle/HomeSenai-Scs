@@ -32,7 +32,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ac0028', end
 
 .header_container {
 
-    width: 100%;
+    width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,8 +49,8 @@ header img {
 h1{
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 30px;
+    font-weight: 60px;
+    font-size: 15px;
 
 }
 
@@ -161,8 +161,8 @@ section img:hover {
     /* object-fit: cover; */
 
     transition: transform .75s;
-    width: 25%;
-    height: 95%;
+    width: 25px;
+    height: 95px;
     border-radius: 35px;
     filter: drop-shadow(0px 20px 32px rgba(0, 0, 0, 0.50));
 }
@@ -184,8 +184,8 @@ footer {
 a {
     color: white;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 25px;
+    font-weight: 500px;
+    font-size: 15px;
     text-decoration: none;
 
 }
