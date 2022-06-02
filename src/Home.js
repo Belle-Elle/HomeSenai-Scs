@@ -3,9 +3,9 @@ import Header from "../src/components/header";
 import Footer from "../src/components/footer";
 import "../src/Assets/css/style.css"
 import info from "../src/Assets/img/info.png"
-import an1 from "../src/Assets/img/anuncio_1.png"
-import an2 from "../src/Assets/img/anuncio_2.png"
-import an3 from "../src/Assets/img/anuncio_3.png"
+import an1 from "../src/Assets/img/imagem8.png"
+import an2 from "../src/Assets/img/imagem2.png"
+import an3 from "../src/Assets/img/imagem5.png"
 import Modal from 'react-modal';
 
 export default function home() {
