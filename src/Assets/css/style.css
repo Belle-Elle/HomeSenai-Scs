@@ -98,7 +98,8 @@ section img:hover {
      
     .imagem{
         margin-bottom: 25px;
-    }
+        width: 15vw;
+        }
 
     .container_imagem {
         display: flex;
@@ -126,7 +127,7 @@ section img:hover {
     }
 
     section {
-        height: 30vh;
+        height: 18vh;
         width: 10vw;
     }
 
