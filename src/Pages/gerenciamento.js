@@ -2,15 +2,13 @@ import Header from "../components/header";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Footer from "../components/footer";
-import '../../src/Assets/css/login.css';
 
 
 
 export const Gerenciamento = () => {
 
   // Cadastrar
-  const [imagem] = useState('');
-
+  const [imagem, setImagem] = useState('');
   // Listar
   const [imagens, setImagens] = useState([]);
 
@@ -18,28 +16,31 @@ export const Gerenciamento = () => {
 
     event.preventDefault();
 
-    debugger
-
     var formData = new FormData();
+    
+    const element = document.getElementById('imagem')
+    const file = element.files[0]
 
-    const target = document.getElementById('arquivo')
-    const file = target.files[0]
-    formData.append('arquivo', file, file.name)
-
+    if (element.value === "") {
+      console.log("tá undefined")
+      formData.append('File', null)
+  } else {
+      formData.append('File', file, file.name)
+  }
+   
+    // formData.append('file', file, file.name)
     formData.append('id', 0);
     formData.append('imagem', imagem);
-
-    debugger
-
+    // console.log(formData)
+    
     axios({
       method: "post",
-      url: "http://localhost:5001/api/Campanha",
+      url: "https://localhost:5001/api/Campanha",
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then(function (response) {
         console.log(response);
-        Listar();
       })
       .catch(function (response) {
         //handle error
@@ -47,35 +48,35 @@ export const Gerenciamento = () => {
       });
   }
 
-  const Listar = () => {
-    axios.get('http://localhost:5001/api/Campanha')
+  function Listar () {
+    axios.get('https://localhost:5001/api/Campanha')
       .then(resposta => {
         setImagens(resposta.data);
       })
       .catch(erro => console.log(erro))
   }
 
-  const Remover = (id) => {
-    axios.delete('http://localhost:5001/api/Campanha' + id)
+  function Remover  (id) {
+    axios.delete('https://localhost:5001/api/Camapanha' + id)
       .then(() => {
         Listar();
       })
       .catch(erro => console.log(erro))
   }
 
-  const LerOCR = (event) => {
+  // const LerOCR = (event) => {
 
-    event.preventDefault();
+  //   event.preventDefault();
 
-    var formData = new FormData();
+  //   var formData = new FormData();
 
-    const element = document.getElementById("codigo");
-    const file = element.files[0];
+  //   const element = document.getElementById("codigo");
+  //   const file = element.files[0];
 
-    formData.append("url", file, file.name);
+  //   formData.append("url", file, file.name);
 
 
-  }
+  // }
 
   useEffect(() => {
     Listar();
@@ -83,60 +84,85 @@ export const Gerenciamento = () => {
 
   return (
     <>
-      <Header></Header>
+      <Header />
       <main className="container">
 
-        <h2>Adicione uma imagem</h2>
-        <form classNeme="escolherArquivo" encType="multipart/form-data">
+        <div className="containerImput">
+          <h2>Adicione uma imagem</h2>
+          <form className="escolherArquivo" onSumbit={Cadastrar} encType="multipart/form-data">
+
+{/* 
+            <div className="imp1"> */}
+              <label className="laybel" htmlFor="codigo">+</label>
+
+              <input
+                type="file"
+                name="imagem"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                value={imagem}
+                onChange={(campo) => setImagem(campo.target.value)}
+                // onChange={(e) => LerOCR(e)}
+              />
+            {/* </div> */}
+            {/* <div className="inputs"> */}
+              {/* <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
+              <input
+                name="codigo"
+                type="file"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                // onChange={(e) => LerOCR(e)}
+              /> */}
+              {/* <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
+              <input
+                name="codigo"
+                type="file"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                // onChange={(e) => LerOCR(e)}
+              />
+              <label className="laybel" htmlFor="codigo">Enviar arquivo</label>
+              <input
+                name="codigo"
+                type="file"
+                id="codigo"
+                accept="image/png, image/jpeg"
+                // onChange={(e) => LerOCR(e)}
+              /> */}
+
+            {/* </div> */}
+            {/* <div className="botao"> */}
+
+              <button
+                type="submit"
+                className="btn btn__cadastro"
+                onChange={(event) => setImagem(event.target.value)}
+              >
+                Cadastrar
+              </button>
+            {/* </div> */}
+
+          </form>
 
 
 
-          <input
-            type="file"
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
 
-          <input
-            type="file"
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
-
-          <input
-            type="file"
-            id="codigo"
-            accept="image/png, image/jpeg"
-            onChange={(e) => LerOCR(e)}
-          />
-
-          <button
-            type="submit"
-            className="btn btn__cadastro"
-            onClick={(e) => Cadastrar(e)}
-          >
-            Cadastrar
-          </button>
-
-        </form>
-
-
-
-        {imagens.map(item =>
-          <div className="card" key={item.id}>
-            <img src={"http://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
-            <div>
-
-              <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span>
-            </div>
-            <button className="excluir" onClick={() => Remover(item.id)}>Excluir</button>
           </div>
-        )}
+          {imagens.map(item =>
+            <div className="card" key={item.id}>
+              <img src={"https://localhost:5001/StaticFiles/Images/" + item.imagem} alt="" />
+              <div>
+
+                {/* <span>Cadastrado em {new Date(item.dataCadastro).toLocaleDateString()}</span> */}
+              </div>
+              <button className="excluir" onClick={() => Remover(item.id)}>Excluir</button>
+            </div>
+          )}
+
 
       </main>
-      <Footer></Footer>
+      <Footer />
     </>
   )
 }
